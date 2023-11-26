@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Add Event</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #111111;
+            color: #fff; /* Set text color to white */
+        }
+
+        header {
+            text-align: left;
+            padding: 1em;
+            display: flex;
+            align-items: center;
+        }
+
+        header img {
+            max-height: 1em;
+            cursor: pointer;
+        }
+
+        h1 {
+            margin-left: 20px;
+        }
+
+        main {
+            padding: 1em;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        button {
+            background-color: #111111;
+            border: none;
+            color: #fff; /* Set text color to white */
+        }
+
+        /* New styles for the added elements */
+        .rounded-border {
+            border: 2px solid #111111;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        .button-style {
+            border: 2px solid #111111;
+            background-color: #727272;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .button-style-green {
+            background-color: #3A881E; /* Green background */
+            text-align: center;
+        }
+
+        .button-style-green button {
+            background-color: #3A881E;
+            color: #fff;
+        }
+
+        .button-style:hover {
+            background-color: #fff;
+            color: #111111;
+        }
+
+        /* Remove border between input fields */
+        input {
+            border: none;
+            background-color: #727272;
+            border-radius: 5px;
+            color: #fff; /* Set text color to white */
+            
+        }
+
+        textarea {
+            background-color: #727272;
+            border-radius: 5px;
+            color: #fff; /* Set text color to white */
+        }
+
+        #uploadPoster {
+            height: 200px;
+            text-align: center;
+            font-size: 35px;
+            font-weight: bold;
+        }
+
+        fieldset {
+            border: 1px solid whitesmoke;
+            background-color: #727272;
+            border-radius: 5px;
+        }
+
+        .from-to {
+            height: 70px;
+        }
+
+        ::placeholder {
+            color: white;
+            font-size: 35px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <button onclick="openOtherPage()">
+            <i class="fa fa-angle-left" style="font-size:48px;color:white"></i>
+        </button>
+        <h1>Add Event</h1>
+    </header>
+
+    <main>
+        <div class="rounded-border">
+            <fieldset>
+                <legend>Description</legend>
+                <textarea rows="4" cols="50"></textarea>
+            </fieldset>
+
+        </div>
+        <div id="uploadPoster" class="button-style" onclick="uploadPoster()">
+            <i class="fa fa-upload" style="font-size:100px;color:white"></i>
+            <br>
+            Upload Poster
+        </div>
+        <div class="rounded-border">
+            <h2>Time</h2>
+            <label for="fromTime">From:</label>
+            <input type="text" id="fromTime" name="fromTime" class="from-to" placeholder="00:00"></input>
+            <label for="toTime">To:</label>
+            <input type="text" id="toTime" name="toTime" class="from-to" placeholder="00:00"></input>
+        </div>
+        <div class="rounded-border">
+            <fieldset>
+                <legend>Location</legend>
+                <textarea rows="4" cols="50"></textarea>
+            </fieldset>
+
+        </div>
+        </div>
+        <div>
+            <div class="button-style button-style-green" onclick="publishEvent()">
+                Publish
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        function openOtherPage() {
+            window.location.href = "other_page.html";
+        }
+
+        function uploadPoster() {
+            alert("Uploading Poster!");
+        }
+
+        // New function for the "Publish" button
+        function publishEvent() {
+            alert("Event Published!");
+        }
+        function changeFontSize(){
+            var inputElement = document.getElementById("fromTime");
+            inputElement.style.fontSize = "123px";
+        }
+    </script>
+
+</body>
+
+</html>
