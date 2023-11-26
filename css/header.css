@@ -1,6 +1,6 @@
 header {
     /* Layout */
-    height: 160px;
+    height: 90px;
     /* Style */
     background: #1A1A1A;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -25,4 +25,38 @@ h1 {
 .Burger {
     width: 20px;
     height: 20px;
+}
+
+.GlobalSearch {
+    /* Layout */
+    display: flex;
+    width: 201px;
+    height: 31.432px;
+    min-width: 201px;
+    max-width: 402px;
+    align-items: center;
+    gap: 2.233px;
+    flex-shrink: 0;
+    padding: 10px;
+
+    /* Style */
+    border-radius: 15.633px;
+    border: 0.827px solid #5E5E5E;
+    background: #303030;
+}
+
+.AddEvent {
+    /* Layout */
+    display: flex;
+    width: 67.13px;
+    height: 31px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    color: white;
+    /* Style */
+    border-radius: 76.95px;
+    border: 0.822px solid #6ABA4E;
+    background: #3A881E;
 }

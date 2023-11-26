@@ -1,0 +1,19 @@
+.Channel {
+    display: flex;
+}
+
+.ChannelImage {
+    border-radius: 20px;
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
+.channelName {
+    display: flex;
+    align-items: center;
+
+}
+
+.Poster {
+    width: 100%;
+}

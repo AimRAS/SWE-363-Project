@@ -1,0 +1,37 @@
+.filters {
+    padding: 20px;
+}
+
+.filtersButtons {
+    padding-top: 20px;
+}
+
+.Filter {
+    /* width: 48px; */
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 34px;
+    flex-shrink: 0;
+    margin-right: 10px;
+    color: white;
+
+    /* Style */
+    border-radius: 5px;
+    border: 1px solid #7D7D7D;
+    background: rgba(217, 217, 217, 0.00);
+}
+
+.FilterSelected {
+    /* width: 48px; */
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 34px;
+    flex-shrink: 0;
+    margin-right: 10px;
+    color: white;
+
+    /* Style */
+    border-radius: 5px;
+    border: 1px solid #7D7D7D;
+    background: rgba(217, 217, 217, 0.30);
+}
