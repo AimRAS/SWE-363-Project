@@ -17,9 +17,13 @@
 
     <header>
         <h1>KFUPM Events</h1>
-        <button class="Burger"></button>
+        <!-- <button class="Burger"></button> -->
+        <svg class="Burger" xmlns="http://www.w3.org/2000/svg" width="26" height="20" viewBox="0 0 26 20" fill="none">
+            <path d="M24.7027 16.8333V19H1.14267V16.8333H24.7027ZM24.7027 8.91667V11.0833H1.14267V8.91667H24.7027ZM24.7027 3.16667H1.14267V1H24.7027V3.16667Z" fill="#CDCDCD" stroke="#545454"/>
+        </svg>
         <input type="search" class="GlobalSearch" placeholder="search">
         <button id="AddEvent" class="AddEvent" onclick="">+ Event</button>
+        
     </header>
 
     <main>
@@ -231,6 +235,33 @@
     
         // Attach the onclick event handler to the button
         myButton.onclick = goToAnotherPage;
+
+
+
+
+        const body = document.body;
+        let lastScroll = 0;
+
+        window.addEventListener("scroll", () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll <= 0) {
+                body.classList.remove("scroll-up");
+                // return;
+            }
+
+            if (currentScroll > lastScroll && !body.classList.contains("scroll-down")) {
+                body.classList.remove("scroll-up");
+                body.classList.add("scroll-down");
+            } 
+            else if (
+                currentScroll < lastScroll &&
+                body.classList.contains("scroll-down")
+            ) {
+                body.classList.remove("scroll-down");
+                body.classList.add("scroll-up");
+            }
+            lastScroll = currentScroll;
+        });
     </script>
 
 
