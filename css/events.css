@@ -25,11 +25,38 @@
 
 .details {
     display: flex;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 label {
     border-radius: 5px;
     background: rgba(217, 217, 217, 0.05);
-    margin-left: 20px;
+    /* margin-left: 20px; */
     padding: 10px;
+}
+
+
+@media (min-width: 600px) {
+    .Events {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        justify-items: center;
+    }
+
+    .Event {
+        width: 90%;
+    }
+
+    .Poster {
+        border-radius: 20px;
+    }
+}
+
+@media (min-width: 1000px) {
+    .Events {
+        grid-template-columns: 33% 33% 33%;
+    }
+
 }

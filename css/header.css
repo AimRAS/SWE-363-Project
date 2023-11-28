@@ -1,17 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,500;0,700;1,100;1,400;1,500&display=swap');
+
+
 header {
     /* Layout */
-    height: 90px;
+    height: 80px;
+    /* width: 100%; */
     /* Style */
     background: #1A1A1A;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     padding: 20px;
     padding-top: 50px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+
+    display: grid;
+    grid-template-columns: 75% 25%;
+    grid-template-rows: 50% 50%;
+    
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+    /* justify-content: space-between;
+    align-content: space-between; */
 }
 
-h1 {
+header h1 {
     color: #FFF;
     text-align: left;
     font-family: Roboto;
@@ -20,9 +30,11 @@ h1 {
     font-weight: 600;
     line-height: 16px; /* 57.143% */
     letter-spacing: 0.5px;
+
 }
 
 .Burger {
+    justify-self: right;
     width: 20px;
     height: 20px;
 }
@@ -30,10 +42,10 @@ h1 {
 .GlobalSearch {
     /* Layout */
     display: flex;
-    width: 201px;
+    width: 75%;
     height: 31.432px;
-    min-width: 201px;
-    max-width: 402px;
+    /* min-width: 201px;
+    max-width: 75%; */
     align-items: center;
     gap: 2.233px;
     flex-shrink: 0;
@@ -47,6 +59,8 @@ h1 {
 
 .AddEvent {
     /* Layout */
+    justify-self: right;
+
     display: flex;
     width: 67.13px;
     height: 31px;
@@ -59,4 +73,31 @@ h1 {
     border-radius: 76.95px;
     border: 0.822px solid #6ABA4E;
     background: #3A881E;
+}
+
+@media (min-width: 600px) {
+    header {
+        display: flex;
+        align-items: center;
+        height: 40px;
+
+    }
+
+    .Burger {
+        order: -1;
+        margin-right: 20px;
+    }
+
+    header h1 {
+        margin-right: 20px;
+    }
+
+
+    .GlobalSearch {
+        width: 200px;
+        margin-right: 20px;
+    }
+
+
+
 }
