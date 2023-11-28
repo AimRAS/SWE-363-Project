@@ -26,8 +26,30 @@ header {
     /* flex-wrap: wrap; */
     /* justify-content: space-between;
     align-content: space-between; */
-    /* z-index: 9999; */
+    z-index: 1;
 	transition: all 300ms ease-in-out;
+    
+     
+}
+
+.headerblur {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 80px;
+    /* width: 20px; */
+    /* background-color: #1A1A1A; */
+    backdrop-filter: blur(12px);
+
+    z-index: -1;
+}
+
+
+  
+
+header.theme2 {
+    background: #1c301c;
 }
 
 .scroll-down header {
@@ -37,11 +59,11 @@ header {
 	
 }
 
-.scroll-up header{
+/* .scroll-up header{
 	
-		/* filter: drop-shadow(0 -10px 20px rgb(170, 170, 170)); */
+		filter: drop-shadow(0 -10px 20px rgb(170, 170, 170));
 	
-}
+} */
 
 header h1 {
     color: #FFF;
@@ -78,7 +100,7 @@ header h1 {
     color: white;
 
     /* Style */
-    border-radius: 15.633px;
+    border-radius: 10px;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     border: 0.827px solid #5E5E5E;
     background: #303030;
@@ -107,7 +129,7 @@ header h1 {
     flex-shrink: 0;
     color: white;
     /* Style */
-    border-radius: 76.95px;
+    border-radius: 10px;
     border: 0.822px solid #6ABA4E;
     background: #3A881E;
     transition: 200ms;

@@ -31,16 +31,26 @@
 
 .details {
     display: flex;
+    /* flex-wrap: wrap; */
+    gap: 10px;
+    /* width: fit-content; */
     justify-content: space-between;
     padding-left: 20px;
     padding-right: 20px;
+    /* margin-right: 10px; */
 }
 
 .details label {
+    display: flex;
+    align-items: center;
+    width: auto;
+    font-size: small;
+
+    gap: 10px;
     border-radius: 5px;
     background: rgba(217, 217, 217, 0.05);
     /* margin-left: 20px; */
-    padding: 10px;
+    padding: 5px;
 }
 
 
@@ -56,10 +66,15 @@
         width: 90%;
         border-radius: 10px;
         padding: 10px;
+        /* background-color: #111;
+        filter: drop-shadow(0px 0px 10px rgb(0, 0, 0)); */
+
+        
     }
 
     .Event:hover {
         background-color: rgb(23, 23, 23);
+        filter: drop-shadow(0px 0px 10px rgb(0, 0, 0));
     }
 
     .Poster {

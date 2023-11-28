@@ -4,18 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KFUPM Event</title>
+    <base href="../">
     <!-- include all CSS files needed -->
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/filters.css">
     <link rel="stylesheet" href="css/events.css">
     <link rel="stylesheet" href="css/addevnt.css">
+    <link rel="stylesheet" href="css/buger.css">
     <!-- include JS files needed -->
     <script src="app.js"></script>
 </head>
 <body>
 
-    <header>
+    <header class="header">
         <h1>KFUPM Events</h1>
         <!-- <button class="Burger"></button> -->
         <svg class="Burger" xmlns="http://www.w3.org/2000/svg" width="26" height="20" viewBox="0 0 26 20" fill="none">
@@ -23,6 +25,9 @@
         </svg>
         <input type="search" class="GlobalSearch" placeholder="search">
         <button id="AddEvent" class="AddEvent" onclick="">+ Event</button>
+        <div class="headerblur">
+            
+        </div>
         
     </header>
 
@@ -51,37 +56,19 @@
                 <div class="descrption"><p>Here the desct of channel</p></div>
                 <img src="Assets/lo-fi image for project.png" alt="" class="Poster">
                 <div class="details">
-                    <label for="">Date</label>
-                    <label for="">Location</label>
-                    <label for="">Views</label>
-                </div>
-            </div>
-            <!-- Ex2 -->
-            <div class="Event"> 
-                <div class="Channel">
-                    <img src="Assets/gitimageforproject.png" alt="" class="ChannelImage">
-                    <h2 class="channelName">Channel Name</h2>
-                </div>
-                <div class="descrption"><p>Here the desct of channel</p></div>
-                <img src="Assets/lo-fi image for project.png" alt="" class="Poster">
-                <div class="details">
-                    <label for="">Date</label>
-                    <label for="">Location</label>
-                    <label for="">Views</label>
-                </div>
-            </div>
-            <!-- Ex3 -->
-            <div class="Event"> 
-                <div class="Channel">
-                    <img src="Assets/gitimageforproject.png" alt="" class="ChannelImage">
-                    <h2 class="channelName">Channel Name</h2>
-                </div>
-                <div class="descrption"><p>Here the desct of channel</p></div>
-                <img src="Assets/lo-fi image for project.png" alt="" class="Poster">
-                <div class="details">
-                    <label for="">Date</label>
-                    <label for="">Location</label>
-                    <label for="">Views</label>
+                    <label for="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M8.89418 10.8708H6.9177V12.8472H8.89418V10.8708ZM12.8472 10.8708H10.8707V12.8472H12.8472V10.8708ZM16.8001 10.8708H14.8236V12.8472H16.8001V10.8708ZM18.7766 3.95305H17.7884V1.97656H15.8119V3.95305H7.90594V1.97656H5.92945V3.95305H4.94121C3.84426 3.95305 2.9746 4.84247 2.9746 5.92954L2.96472 19.7649C2.96472 20.852 3.84426 21.7414 4.94121 21.7414H18.7766C19.8637 21.7414 20.7531 20.852 20.7531 19.7649V5.92954C20.7531 4.84247 19.8637 3.95305 18.7766 3.95305ZM18.7766 19.7649H4.94121V8.89427H18.7766V19.7649Z" fill="#3A881E"/>
+                          </svg>
+                        Friday <br> 18:00-19:00
+                    </label>
+                    <label for="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2C8.13 2 5 5.13 5 9C5 10.74 5.5 12.37 6.41 13.84C7.36 15.38 8.61 16.7 9.57 18.24C10.04 18.99 10.38 19.69 10.74 20.5C11 21.05 11.21 22 12 22C12.79 22 13 21.05 13.25 20.5C13.62 19.69 13.95 18.99 14.42 18.24C15.38 16.71 16.63 15.39 17.58 13.84C18.5 12.37 19 10.74 19 9C19 5.13 15.87 2 12 2ZM12 11.75C10.62 11.75 9.5 10.63 9.5 9.25C9.5 7.87 10.62 6.75 12 6.75C13.38 6.75 14.5 7.87 14.5 9.25C14.5 10.63 13.38 11.75 12 11.75Z" fill="#3A881E"/>
+                          </svg>
+                          Online
+                    </label>
+                    <label for="">Views: 25</label>
                 </div>
             </div>
             <div class="Event"> 
@@ -92,9 +79,19 @@
                 <div class="descrption"><p>Here the desct of channel</p></div>
                 <img src="Assets/lo-fi image for project.png" alt="" class="Poster">
                 <div class="details">
-                    <label for="">Date</label>
-                    <label for="">Location</label>
-                    <label for="">Views</label>
+                    <label for="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M8.89418 10.8708H6.9177V12.8472H8.89418V10.8708ZM12.8472 10.8708H10.8707V12.8472H12.8472V10.8708ZM16.8001 10.8708H14.8236V12.8472H16.8001V10.8708ZM18.7766 3.95305H17.7884V1.97656H15.8119V3.95305H7.90594V1.97656H5.92945V3.95305H4.94121C3.84426 3.95305 2.9746 4.84247 2.9746 5.92954L2.96472 19.7649C2.96472 20.852 3.84426 21.7414 4.94121 21.7414H18.7766C19.8637 21.7414 20.7531 20.852 20.7531 19.7649V5.92954C20.7531 4.84247 19.8637 3.95305 18.7766 3.95305ZM18.7766 19.7649H4.94121V8.89427H18.7766V19.7649Z" fill="#3A881E"/>
+                          </svg>
+                        Monday <br> 18:00-19:00
+                    </label>
+                    <label for="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2C8.13 2 5 5.13 5 9C5 10.74 5.5 12.37 6.41 13.84C7.36 15.38 8.61 16.7 9.57 18.24C10.04 18.99 10.38 19.69 10.74 20.5C11 21.05 11.21 22 12 22C12.79 22 13 21.05 13.25 20.5C13.62 19.69 13.95 18.99 14.42 18.24C15.38 16.71 16.63 15.39 17.58 13.84C18.5 12.37 19 10.74 19 9C19 5.13 15.87 2 12 2ZM12 11.75C10.62 11.75 9.5 10.63 9.5 9.25C9.5 7.87 10.62 6.75 12 6.75C13.38 6.75 14.5 7.87 14.5 9.25C14.5 10.63 13.38 11.75 12 11.75Z" fill="#3A881E"/>
+                          </svg>
+                          Online
+                    </label>
+                    <label for="">Views: 25</label>
                 </div>
             </div>
             <div class="Event"> 
@@ -105,9 +102,19 @@
                 <div class="descrption"><p>Here the desct of channel</p></div>
                 <img src="Assets/lo-fi image for project.png" alt="" class="Poster">
                 <div class="details">
-                    <label for="">Date</label>
-                    <label for="">Location</label>
-                    <label for="">Views</label>
+                    <label for="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M8.89418 10.8708H6.9177V12.8472H8.89418V10.8708ZM12.8472 10.8708H10.8707V12.8472H12.8472V10.8708ZM16.8001 10.8708H14.8236V12.8472H16.8001V10.8708ZM18.7766 3.95305H17.7884V1.97656H15.8119V3.95305H7.90594V1.97656H5.92945V3.95305H4.94121C3.84426 3.95305 2.9746 4.84247 2.9746 5.92954L2.96472 19.7649C2.96472 20.852 3.84426 21.7414 4.94121 21.7414H18.7766C19.8637 21.7414 20.7531 20.852 20.7531 19.7649V5.92954C20.7531 4.84247 19.8637 3.95305 18.7766 3.95305ZM18.7766 19.7649H4.94121V8.89427H18.7766V19.7649Z" fill="#3A881E"/>
+                          </svg>
+                        Monday <br> 18:00-19:00
+                    </label>
+                    <label for="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2C8.13 2 5 5.13 5 9C5 10.74 5.5 12.37 6.41 13.84C7.36 15.38 8.61 16.7 9.57 18.24C10.04 18.99 10.38 19.69 10.74 20.5C11 21.05 11.21 22 12 22C12.79 22 13 21.05 13.25 20.5C13.62 19.69 13.95 18.99 14.42 18.24C15.38 16.71 16.63 15.39 17.58 13.84C18.5 12.37 19 10.74 19 9C19 5.13 15.87 2 12 2ZM12 11.75C10.62 11.75 9.5 10.63 9.5 9.25C9.5 7.87 10.62 6.75 12 6.75C13.38 6.75 14.5 7.87 14.5 9.25C14.5 10.63 13.38 11.75 12 11.75Z" fill="#3A881E"/>
+                          </svg>
+                          Online
+                    </label>
+                    <label for="">Views: 25</label>
                 </div>
             </div>
             <div class="Event"> 
@@ -118,37 +125,19 @@
                 <div class="descrption"><p>Here the desct of channel</p></div>
                 <img src="Assets/lo-fi image for project.png" alt="" class="Poster">
                 <div class="details">
-                    <label for="">Date</label>
-                    <label for="">Location</label>
-                    <label for="">Views</label>
-                </div>
-            </div>
-            <!-- Ex2 -->
-            <div class="Event"> 
-                <div class="Channel">
-                    <img src="Assets/gitimageforproject.png" alt="" class="ChannelImage">
-                    <h2 class="channelName">Channel Name</h2>
-                </div>
-                <div class="descrption"><p>Here the desct of channel</p></div>
-                <img src="Assets/lo-fi image for project.png" alt="" class="Poster">
-                <div class="details">
-                    <label for="">Date</label>
-                    <label for="">Location</label>
-                    <label for="">Views</label>
-                </div>
-            </div>
-            <!-- Ex3 -->
-            <div class="Event"> 
-                <div class="Channel">
-                    <img src="Assets/gitimageforproject.png" alt="" class="ChannelImage">
-                    <h2 class="channelName">Channel Name</h2>
-                </div>
-                <div class="descrption"><p>Here the desct of channel</p></div>
-                <img src="Assets/lo-fi image for project.png" alt="" class="Poster">
-                <div class="details">
-                    <label for="">Date</label>
-                    <label for="">Location</label>
-                    <label for="">Views</label>
+                    <label for="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M8.89418 10.8708H6.9177V12.8472H8.89418V10.8708ZM12.8472 10.8708H10.8707V12.8472H12.8472V10.8708ZM16.8001 10.8708H14.8236V12.8472H16.8001V10.8708ZM18.7766 3.95305H17.7884V1.97656H15.8119V3.95305H7.90594V1.97656H5.92945V3.95305H4.94121C3.84426 3.95305 2.9746 4.84247 2.9746 5.92954L2.96472 19.7649C2.96472 20.852 3.84426 21.7414 4.94121 21.7414H18.7766C19.8637 21.7414 20.7531 20.852 20.7531 19.7649V5.92954C20.7531 4.84247 19.8637 3.95305 18.7766 3.95305ZM18.7766 19.7649H4.94121V8.89427H18.7766V19.7649Z" fill="#3A881E"/>
+                          </svg>
+                        Monday <br> 18:00-19:00
+                    </label>
+                    <label for="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2C8.13 2 5 5.13 5 9C5 10.74 5.5 12.37 6.41 13.84C7.36 15.38 8.61 16.7 9.57 18.24C10.04 18.99 10.38 19.69 10.74 20.5C11 21.05 11.21 22 12 22C12.79 22 13 21.05 13.25 20.5C13.62 19.69 13.95 18.99 14.42 18.24C15.38 16.71 16.63 15.39 17.58 13.84C18.5 12.37 19 10.74 19 9C19 5.13 15.87 2 12 2ZM12 11.75C10.62 11.75 9.5 10.63 9.5 9.25C9.5 7.87 10.62 6.75 12 6.75C13.38 6.75 14.5 7.87 14.5 9.25C14.5 10.63 13.38 11.75 12 11.75Z" fill="#3A881E"/>
+                          </svg>
+                          Online
+                    </label>
+                    <label for="">Views: 25</label>
                 </div>
             </div>
             <div class="Event"> 
@@ -159,9 +148,43 @@
                 <div class="descrption"><p>Here the desct of channel</p></div>
                 <img src="Assets/lo-fi image for project.png" alt="" class="Poster">
                 <div class="details">
-                    <label for="">Date</label>
-                    <label for="">Location</label>
-                    <label for="">Views</label>
+                    <label for="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M8.89418 10.8708H6.9177V12.8472H8.89418V10.8708ZM12.8472 10.8708H10.8707V12.8472H12.8472V10.8708ZM16.8001 10.8708H14.8236V12.8472H16.8001V10.8708ZM18.7766 3.95305H17.7884V1.97656H15.8119V3.95305H7.90594V1.97656H5.92945V3.95305H4.94121C3.84426 3.95305 2.9746 4.84247 2.9746 5.92954L2.96472 19.7649C2.96472 20.852 3.84426 21.7414 4.94121 21.7414H18.7766C19.8637 21.7414 20.7531 20.852 20.7531 19.7649V5.92954C20.7531 4.84247 19.8637 3.95305 18.7766 3.95305ZM18.7766 19.7649H4.94121V8.89427H18.7766V19.7649Z" fill="#3A881E"/>
+                          </svg>
+                        Monday <br> 18:00-19:00
+                    </label>
+                    <label for="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2C8.13 2 5 5.13 5 9C5 10.74 5.5 12.37 6.41 13.84C7.36 15.38 8.61 16.7 9.57 18.24C10.04 18.99 10.38 19.69 10.74 20.5C11 21.05 11.21 22 12 22C12.79 22 13 21.05 13.25 20.5C13.62 19.69 13.95 18.99 14.42 18.24C15.38 16.71 16.63 15.39 17.58 13.84C18.5 12.37 19 10.74 19 9C19 5.13 15.87 2 12 2ZM12 11.75C10.62 11.75 9.5 10.63 9.5 9.25C9.5 7.87 10.62 6.75 12 6.75C13.38 6.75 14.5 7.87 14.5 9.25C14.5 10.63 13.38 11.75 12 11.75Z" fill="#3A881E"/>
+                          </svg>
+                          Online
+                    </label>
+                    <label for="">Views: 25</label>
+                </div>
+            </div>
+            
+            <div class="Event"> 
+                <div class="Channel">
+                    <img src="Assets/gitimageforproject.png" alt="" class="ChannelImage">
+                    <h2 class="channelName">Channel Name</h2>
+                </div>
+                <div class="descrption"><p>Here the desct of channel</p></div>
+                <img src="Assets/lo-fi image for project.png" alt="" class="Poster">
+                <div class="details">
+                    <label for="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M8.89418 10.8708H6.9177V12.8472H8.89418V10.8708ZM12.8472 10.8708H10.8707V12.8472H12.8472V10.8708ZM16.8001 10.8708H14.8236V12.8472H16.8001V10.8708ZM18.7766 3.95305H17.7884V1.97656H15.8119V3.95305H7.90594V1.97656H5.92945V3.95305H4.94121C3.84426 3.95305 2.9746 4.84247 2.9746 5.92954L2.96472 19.7649C2.96472 20.852 3.84426 21.7414 4.94121 21.7414H18.7766C19.8637 21.7414 20.7531 20.852 20.7531 19.7649V5.92954C20.7531 4.84247 19.8637 3.95305 18.7766 3.95305ZM18.7766 19.7649H4.94121V8.89427H18.7766V19.7649Z" fill="#3A881E"/>
+                          </svg>
+                        Monday <br> 18:00-19:00
+                    </label>
+                    <label for="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2C8.13 2 5 5.13 5 9C5 10.74 5.5 12.37 6.41 13.84C7.36 15.38 8.61 16.7 9.57 18.24C10.04 18.99 10.38 19.69 10.74 20.5C11 21.05 11.21 22 12 22C12.79 22 13 21.05 13.25 20.5C13.62 19.69 13.95 18.99 14.42 18.24C15.38 16.71 16.63 15.39 17.58 13.84C18.5 12.37 19 10.74 19 9C19 5.13 15.87 2 12 2ZM12 11.75C10.62 11.75 9.5 10.63 9.5 9.25C9.5 7.87 10.62 6.75 12 6.75C13.38 6.75 14.5 7.87 14.5 9.25C14.5 10.63 13.38 11.75 12 11.75Z" fill="#3A881E"/>
+                          </svg>
+                          Online
+                    </label>
+                    <label for="">Views: 25</label>
                 </div>
             </div>
             <div class="Event"> 
@@ -172,11 +195,92 @@
                 <div class="descrption"><p>Here the desct of channel</p></div>
                 <img src="Assets/lo-fi image for project.png" alt="" class="Poster">
                 <div class="details">
-                    <label for="">Date</label>
-                    <label for="">Location</label>
-                    <label for="">Views</label>
+                    <label for="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M8.89418 10.8708H6.9177V12.8472H8.89418V10.8708ZM12.8472 10.8708H10.8707V12.8472H12.8472V10.8708ZM16.8001 10.8708H14.8236V12.8472H16.8001V10.8708ZM18.7766 3.95305H17.7884V1.97656H15.8119V3.95305H7.90594V1.97656H5.92945V3.95305H4.94121C3.84426 3.95305 2.9746 4.84247 2.9746 5.92954L2.96472 19.7649C2.96472 20.852 3.84426 21.7414 4.94121 21.7414H18.7766C19.8637 21.7414 20.7531 20.852 20.7531 19.7649V5.92954C20.7531 4.84247 19.8637 3.95305 18.7766 3.95305ZM18.7766 19.7649H4.94121V8.89427H18.7766V19.7649Z" fill="#3A881E"/>
+                          </svg>
+                        Monday <br> 18:00-19:00
+                    </label>
+                    <label for="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2C8.13 2 5 5.13 5 9C5 10.74 5.5 12.37 6.41 13.84C7.36 15.38 8.61 16.7 9.57 18.24C10.04 18.99 10.38 19.69 10.74 20.5C11 21.05 11.21 22 12 22C12.79 22 13 21.05 13.25 20.5C13.62 19.69 13.95 18.99 14.42 18.24C15.38 16.71 16.63 15.39 17.58 13.84C18.5 12.37 19 10.74 19 9C19 5.13 15.87 2 12 2ZM12 11.75C10.62 11.75 9.5 10.63 9.5 9.25C9.5 7.87 10.62 6.75 12 6.75C13.38 6.75 14.5 7.87 14.5 9.25C14.5 10.63 13.38 11.75 12 11.75Z" fill="#3A881E"/>
+                          </svg>
+                          Online
+                    </label>
+                    <label for="">Views: 25</label>
                 </div>
             </div>
+            <div class="Event"> 
+                <div class="Channel">
+                    <img src="Assets/gitimageforproject.png" alt="" class="ChannelImage">
+                    <h2 class="channelName">Channel Name</h2>
+                </div>
+                <div class="descrption"><p>Here the desct of channel</p></div>
+                <img src="Assets/lo-fi image for project.png" alt="" class="Poster">
+                <div class="details">
+                    <label for="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M8.89418 10.8708H6.9177V12.8472H8.89418V10.8708ZM12.8472 10.8708H10.8707V12.8472H12.8472V10.8708ZM16.8001 10.8708H14.8236V12.8472H16.8001V10.8708ZM18.7766 3.95305H17.7884V1.97656H15.8119V3.95305H7.90594V1.97656H5.92945V3.95305H4.94121C3.84426 3.95305 2.9746 4.84247 2.9746 5.92954L2.96472 19.7649C2.96472 20.852 3.84426 21.7414 4.94121 21.7414H18.7766C19.8637 21.7414 20.7531 20.852 20.7531 19.7649V5.92954C20.7531 4.84247 19.8637 3.95305 18.7766 3.95305ZM18.7766 19.7649H4.94121V8.89427H18.7766V19.7649Z" fill="#3A881E"/>
+                          </svg>
+                        Monday <br> 18:00-19:00
+                    </label>
+                    <label for="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2C8.13 2 5 5.13 5 9C5 10.74 5.5 12.37 6.41 13.84C7.36 15.38 8.61 16.7 9.57 18.24C10.04 18.99 10.38 19.69 10.74 20.5C11 21.05 11.21 22 12 22C12.79 22 13 21.05 13.25 20.5C13.62 19.69 13.95 18.99 14.42 18.24C15.38 16.71 16.63 15.39 17.58 13.84C18.5 12.37 19 10.74 19 9C19 5.13 15.87 2 12 2ZM12 11.75C10.62 11.75 9.5 10.63 9.5 9.25C9.5 7.87 10.62 6.75 12 6.75C13.38 6.75 14.5 7.87 14.5 9.25C14.5 10.63 13.38 11.75 12 11.75Z" fill="#3A881E"/>
+                          </svg>
+                          Online
+                    </label>
+                    <label for="">Views: 25</label>
+                </div>
+            </div>
+            <div class="Event"> 
+                <div class="Channel">
+                    <img src="Assets/gitimageforproject.png" alt="" class="ChannelImage">
+                    <h2 class="channelName">Channel Name</h2>
+                </div>
+                <div class="descrption"><p>Here the desct of channel</p></div>
+                <img src="Assets/lo-fi image for project.png" alt="" class="Poster">
+                <div class="details">
+                    <label for="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M8.89418 10.8708H6.9177V12.8472H8.89418V10.8708ZM12.8472 10.8708H10.8707V12.8472H12.8472V10.8708ZM16.8001 10.8708H14.8236V12.8472H16.8001V10.8708ZM18.7766 3.95305H17.7884V1.97656H15.8119V3.95305H7.90594V1.97656H5.92945V3.95305H4.94121C3.84426 3.95305 2.9746 4.84247 2.9746 5.92954L2.96472 19.7649C2.96472 20.852 3.84426 21.7414 4.94121 21.7414H18.7766C19.8637 21.7414 20.7531 20.852 20.7531 19.7649V5.92954C20.7531 4.84247 19.8637 3.95305 18.7766 3.95305ZM18.7766 19.7649H4.94121V8.89427H18.7766V19.7649Z" fill="#3A881E"/>
+                          </svg>
+                        Monday <br> 18:00-19:00
+                    </label>
+                    <label for="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2C8.13 2 5 5.13 5 9C5 10.74 5.5 12.37 6.41 13.84C7.36 15.38 8.61 16.7 9.57 18.24C10.04 18.99 10.38 19.69 10.74 20.5C11 21.05 11.21 22 12 22C12.79 22 13 21.05 13.25 20.5C13.62 19.69 13.95 18.99 14.42 18.24C15.38 16.71 16.63 15.39 17.58 13.84C18.5 12.37 19 10.74 19 9C19 5.13 15.87 2 12 2ZM12 11.75C10.62 11.75 9.5 10.63 9.5 9.25C9.5 7.87 10.62 6.75 12 6.75C13.38 6.75 14.5 7.87 14.5 9.25C14.5 10.63 13.38 11.75 12 11.75Z" fill="#3A881E"/>
+                          </svg>
+                          Online
+                    </label>
+                    <label for="">Views: 25</label>
+                </div>
+            </div>
+            <div class="Event"> 
+                <div class="Channel">
+                    <img src="Assets/gitimageforproject.png" alt="" class="ChannelImage">
+                    <h2 class="channelName">Channel Name</h2>
+                </div>
+                <div class="descrption"><p>Here the desct of channel</p></div>
+                <img src="Assets/lo-fi image for project.png" alt="" class="Poster">
+                <div class="details">
+                    <label for="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M8.89418 10.8708H6.9177V12.8472H8.89418V10.8708ZM12.8472 10.8708H10.8707V12.8472H12.8472V10.8708ZM16.8001 10.8708H14.8236V12.8472H16.8001V10.8708ZM18.7766 3.95305H17.7884V1.97656H15.8119V3.95305H7.90594V1.97656H5.92945V3.95305H4.94121C3.84426 3.95305 2.9746 4.84247 2.9746 5.92954L2.96472 19.7649C2.96472 20.852 3.84426 21.7414 4.94121 21.7414H18.7766C19.8637 21.7414 20.7531 20.852 20.7531 19.7649V5.92954C20.7531 4.84247 19.8637 3.95305 18.7766 3.95305ZM18.7766 19.7649H4.94121V8.89427H18.7766V19.7649Z" fill="#3A881E"/>
+                          </svg>
+                        Monday <br> 18:00-19:00
+                    </label>
+                    <label for="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2C8.13 2 5 5.13 5 9C5 10.74 5.5 12.37 6.41 13.84C7.36 15.38 8.61 16.7 9.57 18.24C10.04 18.99 10.38 19.69 10.74 20.5C11 21.05 11.21 22 12 22C12.79 22 13 21.05 13.25 20.5C13.62 19.69 13.95 18.99 14.42 18.24C15.38 16.71 16.63 15.39 17.58 13.84C18.5 12.37 19 10.74 19 9C19 5.13 15.87 2 12 2ZM12 11.75C10.62 11.75 9.5 10.63 9.5 9.25C9.5 7.87 10.62 6.75 12 6.75C13.38 6.75 14.5 7.87 14.5 9.25C14.5 10.63 13.38 11.75 12 11.75Z" fill="#3A881E"/>
+                          </svg>
+                          Online
+                    </label>
+                    <label for="">Views: 25</label>
+                </div>
+            </div>
+            
+    
             
 
         </div>
@@ -189,7 +293,14 @@
                 <label for="">Upload Image</label>
                 <input type="text">
             </div>
-            
+        </div>
+
+        <div class="Burgernav">
+            <div class="backToMainFromBurger"></div>
+            <div class="PopUpBurgerNav">
+                <h1>hi</h1>
+                <button class="changeTheme">test change theme</button>
+            </div>
         </div>
    
         
@@ -198,22 +309,17 @@
     <script>
         // Get the button element by its ID
         var myButton = document.querySelector('#AddEvent');
+        var burgerButton = document.querySelector('.Burger');
 
         var div = document.querySelector(".addEvent")
         var backToMain = document.querySelector(".backToMain")
-
-
-        var div2 = document.querySelector(".PopUpAddEvent")
-
-        div2.onclick = donothing;
-
-        function donothing() {
-            console.log("hi");
-        }
+        
+        var Burgernav= document.querySelector(".Burgernav")
+        var backToMainFromBurger = document.querySelector(".backToMainFromBurger")
 
     
         // Define the onclick event handler function
-        function goToAnotherPage() {
+        function goToAddEventPage() {
           // Change the current page's URL to the desired HTML page
           var windowWidth = window.innerWidth;
 
@@ -226,15 +332,28 @@
           }
           
         }
+        // Define the onclick event handler function
+        function goToBurgerPage() {
+          // Change the current page's URL to the desired HTML page
+
+            Burgernav.classList.toggle('show');
+
+          
+        }
 
         function goToMainPage() {
             div.classList.toggle('show');
         }
+        function goToMainPageFromBurger() {
+            Burgernav.classList.toggle('show');
+        }
 
         backToMain.onclick = goToMainPage;
+        backToMainFromBurger.onclick = goToMainPageFromBurger;
     
         // Attach the onclick event handler to the button
-        myButton.onclick = goToAnotherPage;
+        myButton.onclick = goToAddEventPage;
+        burgerButton.onclick = goToBurgerPage;
 
 
 
@@ -262,6 +381,18 @@
             }
             lastScroll = currentScroll;
         });
+
+
+        var changeThemeBttn = document.querySelector(".changeTheme");
+        var header = document.querySelector(".header");
+   
+
+        changeThemeBttn.onclick = changeTheme;
+
+        function changeTheme() {
+            header.classList.toggle('theme2');
+            body.classList.toggle('theme2');
+        }
     </script>
 
 
