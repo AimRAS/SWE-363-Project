@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/filters.css">
     <link rel="stylesheet" href="css/events.css">
+    <link rel="stylesheet" href="css/addevnt.css">
     <!-- include JS files needed -->
     <script src="app.js"></script>
 </head>
@@ -175,18 +176,58 @@
             
 
         </div>
+
+        <div class="addEvent">
+            <div class="backToMain"></div>
+            <div class="PopUpAddEvent">
+                <label for="">Description</label>
+                <input type="text">
+                <label for="">Upload Image</label>
+                <input type="text">
+            </div>
+            
+        </div>
+   
         
     </main>
 
     <script>
         // Get the button element by its ID
         var myButton = document.querySelector('#AddEvent');
+
+        var div = document.querySelector(".addEvent")
+        var backToMain = document.querySelector(".backToMain")
+
+
+        var div2 = document.querySelector(".PopUpAddEvent")
+
+        div2.onclick = donothing;
+
+        function donothing() {
+            console.log("hi");
+        }
+
     
         // Define the onclick event handler function
         function goToAnotherPage() {
           // Change the current page's URL to the desired HTML page
-          window.location.href = 'html/AddEvent.html';
+          var windowWidth = window.innerWidth;
+
+          if (windowWidth > 600) {
+            
+            div.classList.toggle('show');
+          }
+          else {
+            window.location.href = 'html/AddEvent.html';
+          }
+          
         }
+
+        function goToMainPage() {
+            div.classList.toggle('show');
+        }
+
+        backToMain.onclick = goToMainPage;
     
         // Attach the onclick event handler to the button
         myButton.onclick = goToAnotherPage;

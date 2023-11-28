@@ -50,11 +50,22 @@ header h1 {
     gap: 2.233px;
     flex-shrink: 0;
     padding: 10px;
+    pointer-events:stroke;
+    color: white;
 
     /* Style */
     border-radius: 15.633px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     border: 0.827px solid #5E5E5E;
     background: #303030;
+    transition: 100ms;
+    outline: none;
+}
+
+
+
+.GlobalSearch:hover {
+    background: #414141;
 }
 
 .AddEvent {
@@ -67,12 +78,19 @@ header h1 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
     flex-shrink: 0;
     color: white;
     /* Style */
     border-radius: 76.95px;
     border: 0.822px solid #6ABA4E;
     background: #3A881E;
+    transition: 200ms;
+}
+
+.AddEvent:hover {
+    background: #439e22;
 }
 
 @media (min-width: 600px) {
