@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <Title>sign Up</Title>
+        <link rel="stylesheet" type="text/css" href="sign.css">
+
+    </head>
+    <body>
+        <header>
+
+        </header>    
+            <h1>Sign Up</h1>   
+            
+        <section>     
+            <form>
+                
+                <label  for="username">Username:</label><br>
+                <input type="text" id="username" name="username"><br>
+                
+                <label for="Email">Email</label><br>
+                <input type="email" id="email" name="email"><br>
+
+                <label for="password">Password:</label><br>
+                <input type="password" id="password" name="password"><br>
+            
+                <label for="password">Confirm Password:</label><br>
+                <input type="password" id="password" name="password"><br>
+                <br>
+                <input type="submit" id="submit" value="Sign UP">
+                Don't have an account? <a href="sign in.html">Sign in</a>
+            </form>
+        </section>
+        <footer>
+
+        </footer>
+    </body>
+</html>
