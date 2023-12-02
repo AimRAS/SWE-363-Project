@@ -120,13 +120,85 @@ input {
         }
 
         .from-to {
-            height: 70px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .from-to input {
+            text-align: center;
+            font-size: 35px; /* Set the font size for the input */
         }
 
         ::placeholder {
             color: white;
             font-size: 35px;
             text-align: center;
+        }
+        .character-limit-alert {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        /* New style for time input */
+        .time-input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+            margin: 5px 0;
+            border: none;
+            background-color: #727272;
+            border-radius: 5px;
+            color: #fff;
+        }
+        .close-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: red;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        /* Style for the uploaded image */
+        #uploadedImage {
+            max-width: 100%;
+            max-height: 200px;
+            margin-top: 10px;
+        }
+
+        /* Hide the close icon by default */
+        .close-icon {
+            display: none;
+        }
+        .upload-container {
+            text-align: center;
+            position: relative;
+            margin-top: 10px;
+        }
+
+        .upload-container label {
+            display: block;
+    cursor: pointer;
+    margin: 10px auto;
+    padding: 10px 20px;
+    border: 2px solid #111111;
+    background-color: #727272;
+    color: #fff;
+    border-radius: 10px;
+    transition: background-color 0.3s, color 0.3s;
+        }
+        .upload-container label:hover {
+    background-color: #fff;
+    color: #111111;
+}
+
+        .upload-container input {
+            display: none;
+        }
+
+        .upload-container #imagePreview {
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -146,34 +218,42 @@ input {
                 <legend>Description</legend>
                 <textarea rows="4" cols="50"></textarea>
             </fieldset>
+        </div>
 
+        <!-- Adjusted section for image uploading -->
+        <div class="upload-container rounded-border">
+            <label for="imageUpload">
+                <i class="fa fa-upload" style="font-size:100px;color:white"></i>
+                <br>
+                Upload Poster
+            </label>
+            <input type="file" id="imageUpload" onchange="previewImage(this)">
+            <div id="imagePreview"></div>
         </div>
-        <div id="uploadPoster" class="button-style" onclick="uploadPoster()">
-            <i class="fa fa-upload" style="font-size:100px;color:white"></i>
-            <br>
-            Upload Poster
-        </div>
+
         <div class="rounded-border">
             <h2>Time</h2>
-            <label for="fromTime">From:</label>
-            <input type="text" id="fromTime" name="fromTime" class="from-to" placeholder="00:00"></input>
-            <label for="toTime">To:</label>
-            <input type="text" id="toTime" name="toTime" class="from-to" placeholder="00:00"></input>
+            <label for="fromTime" class="from-to">From:
+                <input type="text" id="fromTime" name="fromTime" placeholder="00:00" oninput="matchTimeInputStyle(this, 'toTime')">
+            </label>
+            <label for="toTime" class="from-to">To:
+                <input type="text" id="toTime" name="toTime" placeholder="00:00" oninput="matchTimeInputStyle(this, 'fromTime')">
+            </label>
         </div>
+    
         <div class="rounded-border">
             <fieldset>
                 <legend>Location</legend>
-                <textarea rows="4" cols="50"></textarea>
+                <textarea id="locationInput" rows="4" cols="50" oninput="checkCharacterLimit(this, 30)"></textarea>
+                <div id="locationCharacterLimitAlert" class="character-limit-alert"></div>
             </fieldset>
-
         </div>
-        </div>
+        
         <div>
             <div class="button-style button-style-green" onclick="publishEvent()">
                 Publish
             </div>
         </div>
-
     </main>
 
     <script>
@@ -192,6 +272,102 @@ input {
         function changeFontSize(){
             var inputElement = document.getElementById("fromTime");
             inputElement.style.fontSize = "123px";
+        }
+        function matchTimeInputStyle(sourceInput, targetId) {
+            var targetInput = document.getElementById(targetId);
+            targetInput.style.fontSize = window.getComputedStyle(sourceInput).fontSize;
+        }
+
+        // New function to check character limit for the location input
+        function checkCharacterLimit(inputElement, limit) {
+            var alertElement = document.getElementById('locationCharacterLimitAlert');
+            if (inputElement.value.length > limit) {
+                alertElement.textContent = "The maximum number of characters is " + limit + " characters";
+            } else {
+                alertElement.textContent = "";
+            }
+        }
+
+        // Updated function to check missing fields before publishing
+        function publishEvent() {
+            var description = document.querySelector('textarea');
+            var fromTime = document.getElementById('fromTime');
+            var toTime = document.getElementById('toTime');
+            var location = document.getElementById('locationInput');
+
+            if (!description.value || !fromTime.value || !toTime.value || !location.value) {
+                alert("Please fill in all fields.");
+            } else {
+                alert("Event Published!");
+            }
+        }
+        // Function to handle input for time fields
+     function handleTimeInput(inputElement) {
+        // Allow only numeric input
+        inputElement.value = inputElement.value.replace(/\D/g, '');
+
+        // Limit input to four digits
+        inputElement.value = inputElement.value.substring(0, 4);
+
+        // Automatically insert colons
+        if (inputElement.value.length > 2) {
+            inputElement.value = inputElement.value.substring(0, 2) + ':' + inputElement.value.substring(2);
+        }
+
+        // Limit input to "23:59"
+        if (parseInt(inputElement.value.substring(0, 2)) > 23) {
+            inputElement.value = '23';
+        }
+
+        if (parseInt(inputElement.value.substring(3)) > 59) {
+            inputElement.value = inputElement.value.substring(0, 3) + '59';
+        }
+    }
+
+    // Attach the handleTimeInput function to the time input fields
+    document.getElementById('fromTime').addEventListener('input', function () {
+        handleTimeInput(this);
+    });
+
+    document.getElementById('toTime').addEventListener('input', function () {
+        handleTimeInput(this);
+    });
+    function previewImage(input) {
+            var imagePreview = document.getElementById('imagePreview');
+            while (imagePreview.firstChild) {
+                imagePreview.removeChild(imagePreview.firstChild);
+            }
+
+            var file = input.files[0];
+            if (file) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    // Create an image element
+                    var img = document.createElement('img');
+                    img.id = 'uploadedImage';
+                    img.src = e.target.result;
+
+                    // Create a close (X) icon
+                    var closeIcon = document.createElement('span');
+                    closeIcon.className = 'fa fa-times close-icon';
+                    closeIcon.onclick = function () {
+                        // Remove the uploaded image and show the upload button
+                        imagePreview.removeChild(img);
+                        document.getElementById('imageUpload').value = ''; // Clear the file input
+                        document.querySelector('label[for="imageUpload"]').style.display = 'block';
+                        closeIcon.style.display = 'none'; // Hide the close icon
+                    };
+
+                    // Append the image and the close icon to the preview container
+                    imagePreview.appendChild(closeIcon);
+                    imagePreview.appendChild(img);
+
+                    // Hide the upload button
+                    document.querySelector('label[for="imageUpload"]').style.display = 'none';
+                    closeIcon.style.display = 'block'; // Show the close icon
+                };
+                reader.readAsDataURL(file);
+            }
         }
     </script>
 
