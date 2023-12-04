@@ -75,6 +75,18 @@
     color: rgb(130, 130, 130);
 }
 
+.calendarIcon {
+    width: 15px;
+    padding-left: 2px;
+}
+
+.locationIcon {
+    width: 19px;
+}
+
+
+
+
 
 @media (min-width: 600px) {
     .Events {

@@ -67,7 +67,7 @@ header.theme2 {
 } */
 
 header h1 {
-    color: #FFF;
+    color: #689946;
     width: fit-content;
     height: fit-content;
     text-align: left;
@@ -78,6 +78,16 @@ header h1 {
     line-height: 16px; /* 57.143% */
     letter-spacing: 0.5px;
 
+}
+.logoDiv {
+    display: flex;
+    align-items: center;
+}
+
+header .icon {
+    width: 40px;
+    /* display: inline; */
+    
 }
 
 .Burger {
@@ -131,8 +141,8 @@ header h1 {
     color: white;
     /* Style */
     border-radius: 10px;
-    border: 0.822px solid #6ABA4E;
-    background: #3A881E;
+    border: 0px solid #6ABA4E;
+    background: #689946;
     transition: 200ms;
 }
 
