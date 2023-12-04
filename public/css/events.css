@@ -23,6 +23,8 @@
 .descrption {
     display: flex;
     justify-content: center;
+    font-family: Roboto;
+    font-size: small;
 }
 
 .Poster {
@@ -59,12 +61,18 @@
     align-items: center;
     width: auto;
     font-size: small;
+    color: rgb(230, 230, 230);
+    font-family: Roboto;
 
     gap: 10px;
     border-radius: 5px;
     /* background: rgba(217, 217, 217, 0.05); */
     /* margin-left: 20px; */
     padding: 5px;
+}
+
+.details label:nth-child(3) {
+    color: rgb(130, 130, 130);
 }
 
 

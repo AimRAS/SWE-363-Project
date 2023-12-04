@@ -10,6 +10,6 @@ body {
 }
 
 body.theme2 {
-    background-image: linear-gradient(to left, rgb(23, 28, 44),rgb(25, 25, 53), rgb(15, 20, 38));
+    background-color: #111;
 }
 
