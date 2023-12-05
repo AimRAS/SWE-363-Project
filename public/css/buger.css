@@ -1,4 +1,4 @@
-.Burgernav {
+.overlay {
     visibility: hidden;
 
     display: flex;
@@ -19,12 +19,12 @@
     z-index: 10;
 }
 
-.Burgernav.show {
+.overlay.show {
     visibility: visible;
     opacity: 1;
 }
 
-.backToMainFromBurger {
+.closeNavigation {
     position: fixed;
     top: 0;
     bottom: 0;

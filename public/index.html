@@ -64,10 +64,10 @@
             </div>
         </div>
 
-        <!-- Burger Navigation -->
-        <div class="Burgernav">
+        
+        <div class="overlay">
             <!-- Overlay: on click go back to main page (Z-index: 2) -->
-            <div class="backToMainFromBurger"></div>
+            <div class="closeNavigation"></div>
             <!-- Popup nav (Z-index: 3)  -->
             <div class="PopUpBurgerNav">
                 <!-- Button to change Theme -->
@@ -104,8 +104,8 @@
         var div = document.querySelector(".addEvent")
         var backToMain = document.querySelector(".backToMain")
         
-        var Burgernav= document.querySelector(".Burgernav")
-        var backToMainFromBurger = document.querySelector(".backToMainFromBurger")
+        var overlay = document.querySelector(".overlay")
+        var closeNavigation = document.querySelector(".closeNavigation")
 
     
         // Define the onclick event handler function
@@ -123,27 +123,20 @@
           
         }
         // Define the onclick event handler function
-        function goToBurgerPage() {
-          // Change the current page's URL to the desired HTML page
-
-            Burgernav.classList.toggle('show');
-
-          
+        function toggleNavigation() {
+            overlay.classList.toggle('show');
         }
 
         function goToMainPage() {
             div.classList.toggle('show');
         }
-        function goToMainPageFromBurger() {
-            Burgernav.classList.toggle('show');
-        }
 
         backToMain.onclick = goToMainPage;
-        backToMainFromBurger.onclick = goToMainPageFromBurger;
+        closeNavigation.onclick = toggleNavigation;
     
         // Attach the onclick event handler to the button
         myButton.onclick = goToAddEventPage;
-        burgerButton.onclick = goToBurgerPage;
+        burgerButton.onclick = toggleNavigation;
 
 
 
