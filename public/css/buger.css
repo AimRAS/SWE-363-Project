@@ -1,26 +1,27 @@
 .Burgernav {
     visibility: hidden;
+
     display: flex;
+    justify-content: center;
+    align-items: center;
+
     position: fixed;
     top: 0;
     bottom: 0;
     right: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, .9);
-    justify-content: center;
-    align-items: center;
 
+    background-color: rgba(0, 0, 0, .9);
     opacity: 0;
     backdrop-filter: blur(2px);
-
     transition: 100ms ;
+    
     z-index: 10;
 }
 
 .Burgernav.show {
     visibility: visible;
     opacity: 1;
-
 }
 
 .backToMainFromBurger {
@@ -34,15 +35,17 @@
 
 .PopUpBurgerNav {
     display: flex;
-    /* justify-content: center; */
     align-items: center;
     flex-direction: column;
-    background: #1A1A1A;
+
+    
     position: fixed;
     top: 0;
     left: 0;
     bottom: 0;
     width: 300px;
+
+    background: #1A1A1A;
 
     z-index: 20;
 }
