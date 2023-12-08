@@ -41,8 +41,8 @@
 .PopUpAddEvent {
     display: grid;
     justify-content: center;
-    width: 495px;
-    height: 200px;
+    width: 550px;
+    height: 670px;
     flex-shrink: 0;
 
     border-radius: 8px;
@@ -63,7 +63,7 @@
     height: 62px;
     flex-shrink: 0;
     color: white;
-    padding-left: 20px;
+    /* padding-left: 20px; */
 
     border-radius: 8px;
     border: 1px solid #727272;
@@ -75,7 +75,28 @@
     position: relative;
     width: fit-content;
     height: fit-content;
-    top: 18px;
+    font-family: Roboto;
+    top: 10px;
     left: 30px;
     background-image: linear-gradient(to bottom, #1A1A1A 50%, #242424 50%);
+}
+
+.timeBox {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+#date {
+    width: 100px;
+    padding: 0px 5px;
+}
+
+#startTime {
+    width: 70px;
+    padding: 0px 5px;
+}
+#endTime {
+    width: 70px;
+    padding: 0px 5px;
 }

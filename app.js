@@ -1,12 +1,31 @@
+
+require('dotenv').config()
+
+
 const express = require('express')
 const app = express()
+const expressLayouts = require('express-ejs-layouts')
 const path = require('path')
 
+const eventRouter = require('./routes/events')
+
+
+app.use(express.urlencoded({ extended: true}))
+
+app.set("view engine", "ejs")
+app.set('views', __dirname + '/views')
 app.use(express.static('./public'))
 
-// app.get('/',(req, res)=>{
-//     res.sendFile(path.resolve(__dirname,'./index.html'))
-// })
+// connect to mongodb
+const mongoose = require('mongoose')
+mongoose.connect(process.env.dbURL)
+    .then((result) => console.log('connected to db'))
+    .catch((err) => console.log(err))
+
+
+
+
+app.use('/', eventRouter)
 
 
 app.all('*',(req,res)=>{
@@ -15,9 +34,6 @@ app.all('*',(req,res)=>{
 
 
 
-app.listen(5000, ()=>{
-    console.log("server is listening on port 5000.");
-
-})
+app.listen(process.env.PORT || 5000)
 
    
