@@ -24,15 +24,7 @@
     <script defer src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script>
     <script defer src="https://unpkg.com/filepond/dist/filepond.js"></script>
     <script defer src="/js/fileUpload.js"></script>
-    <script>
-        FilePond.registerPlugin(FilePondPluginImagePreview);
-        FilePond.registerPlugin(FilePondPluginImageResize);
-        FilePond.registerPlugin(FilePondPluginFileEncode);
-        const inputElement = document.querySelector('input[type="file"]');
-        const pond = FilePond.create(inputElement);
-        FilePond.parse(document.body);
-    </script>
-
+    
     <!-- comment for testing -->
 </head>
 <body>
@@ -47,7 +39,11 @@
             <path d="M24.7027 16.8333V19H1.14267V16.8333H24.7027ZM24.7027 8.91667V11.0833H1.14267V8.91667H24.7027ZM24.7027 3.16667H1.14267V1H24.7027V3.16667Z" fill="#CDCDCD" stroke="#545454"/>
         </svg>
         <input type="search" class="GlobalSearch" placeholder="search">
-        <button id="AddEvent" class="AddEvent" onclick="">+ Event</button>
+        <button id="AddEvent" class="AddEvent" onclick="">Log in</button>
+        <!-- <div class="signButtons">
+            <button class="LogingButton">Sign In</button>
+            <button class="SignUpButton">Sign Up</button>
+        </div> -->
         <div class="headerblur">
             
         </div>

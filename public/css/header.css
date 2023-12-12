@@ -111,7 +111,7 @@ header .icon {
     color: white;
 
     /* Style */
-    border-radius: 10px;
+    border-radius: 7px;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     border: 0.827px solid #5E5E5E;
     background: #303030;
@@ -129,6 +129,7 @@ header .icon {
     /* Layout */
     justify-self: right;
 
+    /* display: none; */
     display: flex;
     width: 67.13px;
     height: 31px;
@@ -137,10 +138,12 @@ header .icon {
     align-items: center;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 
+    font-family: Roboto;
+
     flex-shrink: 0;
     color: white;
     /* Style */
-    border-radius: 10px;
+    border-radius: 7px;
     border: 0px solid #6ABA4E;
     background: #689946;
     transition: 200ms;
@@ -150,7 +153,38 @@ header .icon {
     background: #439e22;
 }
 
-@media (min-width: 600px) {
+.signButtons {
+    margin-left: auto;
+    display: none;
+    font-size: 16px;
+    font-family: Roboto;
+    color: white;
+}
+.signButtons .LogingButton {
+    font-size: 16px;
+    font-family: Roboto;
+    color: white;
+    width: 70px;
+    height: 31px;
+    background-color: #689946;
+    border-radius: 7px;
+    border: 0px;
+}
+.signButtons .SignUpButton {
+    width: 70px;
+    height: 31px;
+
+    background-color: #1A1A1A;
+    border-radius: 7px;
+    border: 1px solid #689946;
+
+    font-size: 16px;
+    font-family: Roboto;
+    color: #689946;
+    
+}
+
+@media (min-width: 630px) {
     header {
         display: flex;
         align-items: center;
@@ -173,6 +207,20 @@ header .icon {
     .GlobalSearch {
         width: 200px;
         margin-right: 20px;
+    }
+
+
+
+}
+
+@media (min-width: 820px) {
+    
+    .signButtons {
+        
+        display: flex;
+        gap: 10px;
+        justify-content: space-between;
+        align-items: end;
     }
 
 
