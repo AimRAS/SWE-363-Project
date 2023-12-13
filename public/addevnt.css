@@ -1,0 +1,101 @@
+.backToMain {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 10;
+}
+
+
+
+.addEvent {
+    visibility: hidden;
+    display: flex;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .9);
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    backdrop-filter: blur(2px);
+
+    transition: 100ms ;
+    z-index: 10;
+
+}
+
+.addEvent.show {
+    visibility: visible;
+    opacity: 1;
+
+}
+
+
+
+.PopUpAddEvent {
+    display: grid;
+    justify-content: center;
+    width: 550px;
+    height: 670px;
+    flex-shrink: 0;
+
+    border-radius: 8px;
+    background: #1A1A1A;
+    box-shadow: 6px 4px 4px 4px rgba(0, 0, 0, 0.25);
+
+    z-index: 20;
+
+    
+}
+
+
+
+.addEvent input {
+    display: block;
+
+    width: 305px;
+    height: 62px;
+    flex-shrink: 0;
+    color: white;
+    /* padding-left: 20px; */
+
+    border-radius: 8px;
+    border: 1px solid #727272;
+    background: rgba(217, 217, 217, 0.05);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.addEvent label {
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    font-family: Roboto;
+    top: 10px;
+    left: 30px;
+    background-image: linear-gradient(to bottom, #1A1A1A 50%, #242424 50%);
+}
+
+.timeBox {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+#date {
+    width: 100px;
+    padding: 0px 5px;
+}
+
+#startTime {
+    width: 70px;
+    padding: 0px 5px;
+}
+#endTime {
+    width: 70px;
+    padding: 0px 5px;
+}

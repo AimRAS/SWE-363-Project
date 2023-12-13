@@ -1,0 +1,56 @@
+﻿body{
+    width: 360px;
+    height: 800px;
+    background-color: #111111;
+}
+
+*{
+    color:white;
+    font-family:Roboto;
+}
+
+.image-btn {
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.eventLink {
+    background-color: #3A881E;
+    border-color: #6ABA4E;
+}
+
+button{
+    margin:auto;
+    padding:0px;
+    border-radius:5px;
+    text-align:center;
+    width:305px;
+    height:45px;
+}
+span {
+    margin-right:40px;
+    padding:10px;
+    text-align:end;
+    background: #202020;
+    border-radius:5px;
+}
+
+img{
+    float:left;
+}
+
+span img{
+    float:initial;
+}
+
+h1{
+    font-size: 24px;
+    float:right;
+    padding-right:100px;
+    font-weight:bolder;
+}
+
+ul li{
+    display: inline;
+}
