@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
 
 const userSchema = new mongoose.Schema({
     email: {
@@ -13,18 +14,18 @@ const userSchema = new mongoose.Schema({
     username: {
         type: String,
         required: true
-    },
-    profilePicture: {
-        type: Buffer,
-        rquired: false
     }
     
 })
 
 // fire a function before user saved to db to hash the password
 userSchema.pre('save', async function(next) {
+    console.log("creating user here");
     const salt = await bcrypt.genSalt();
+    console.log("creating user here 2");
     this.password = await bcrypt.hash(this.password, salt);
+    console.log("creating user here 3");
+    
     next();
 });
   

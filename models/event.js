@@ -1,33 +1,33 @@
 const mongoose = require('mongoose');
 
 const eventSchema = new mongoose.Schema({
-    user: {
-        type: mongoose.Schema.Types.ObjectId,
-        required: true,
-        ref: 'User'
-    },
+    // user: {
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     required: true,
+    //     ref: 'User'
+    // },
     title: {
         type: String,
         required: true
     },
-    startDate: {
-        type: Date,
+    date: {
+        type: String,
         required: true
     },
-    endDate: {
-        type: Date,
-        rquired: true
-    },
-    endTime: {
-        type: Date,
-        required: true
-    },
-    endTime: {
-        type: Data,
-        required: true
-    },
+    // endDate: {
+    //     type: Date,
+    //     rquired: true
+    // },
+    // endTime: {
+    //     type: Date,
+    //     required: true
+    // },
+    // endTime: {
+    //     type: Date,
+    //     required: true
+    // },
     location: {
-        type: Date,
+        type: String,
         required: true
     },
     posterImage: {

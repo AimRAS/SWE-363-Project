@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="css/buger.css">
     <link rel="icon" href="/Assets/ProjectIcon.svg">
     <!-- include JS files needed -->
-    <script src="js/db.js" defer></script>
+    <!-- <script src="js/db.js" defer></script> -->
     <!-- Code for filepond -->
     <link rel="stylesheet" href="css/filepond.css">
     <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
@@ -24,6 +24,7 @@
     <script defer src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script>
     <script defer src="https://unpkg.com/filepond/dist/filepond.js"></script>
     <script defer src="/js/fileUpload.js"></script>
+    <script defer src="/js/login.js"></script>
     
     <!-- comment for testing -->
 </head>
@@ -32,6 +33,7 @@
 
     <header class="header">
         <div class="logoDiv" >
+           
             <img class="icon" src="Assets/Picture5.svg" alt="ProjectIcon">
             <h1>KFUPM Events</h1>
         </div>
@@ -39,7 +41,12 @@
             <path d="M24.7027 16.8333V19H1.14267V16.8333H24.7027ZM24.7027 8.91667V11.0833H1.14267V8.91667H24.7027ZM24.7027 3.16667H1.14267V1H24.7027V3.16667Z" fill="#CDCDCD" stroke="#545454"/>
         </svg>
         <input type="search" class="GlobalSearch" placeholder="search">
-        <button id="AddEvent" class="AddEvent" onclick="">Log in</button>
+        <% if (user) { %>
+            <button id="AddEvent" class="AddEvent">+ Event</button>
+        <% } else { %>
+            <button id="login" class="AddEvent">Log in</button>
+
+        <% } %>
         <!-- <div class="signButtons">
             <button class="LogingButton">Sign In</button>
             <button class="SignUpButton">Sign Up</button>
@@ -65,8 +72,36 @@
 
         <div class="Events">
 
+            <% events.forEach(event => { %>
+                <div class="Event"> 
+                    <div class="Channel">
+                        <img src="Assets/gitimageforproject.png" alt="" class="ChannelImage">
+                        <h2 class="channelName">Club</h2>
+                    </div>
+                    <div class="descrption"><p><%= event.title %></p></div>
+                    <img src=<%= event.posterImagePath %> alt="" class="Poster">
+                    <div class="details">
+                        <label for="">
+                            <svg class="calendarIcon" xmlns="http://www.w3.org/2000/svg" width="19" height="21" viewBox="0 0 19 21" fill="none">
+                                <path d="M6.89418 9.87075H4.9177V11.8472H6.89418V9.87075ZM10.8472 9.87075H8.87067V11.8472H10.8472V9.87075ZM14.8001 9.87075H12.8236V11.8472H14.8001V9.87075ZM16.7766 2.95305H15.7884V0.976562H13.8119V2.95305H5.90594V0.976562H3.92945V2.95305H2.94121C1.84426 2.95305 0.974604 3.84247 0.974604 4.92954L0.964722 18.7649C0.964722 19.852 1.84426 20.7414 2.94121 20.7414H16.7766C17.8637 20.7414 18.7531 19.852 18.7531 18.7649V4.92954C18.7531 3.84247 17.8637 2.95305 16.7766 2.95305ZM16.7766 18.7649H2.94121V7.89427H16.7766V18.7649Z" fill="#689946"/>
+                            </svg>
+                            <%= event.date %> 
+                        </label>
+                        <label for="">
+                            <svg class="locationIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 2C8.13 2 5 5.13 5 9C5 10.74 5.5 12.37 6.41 13.84C7.36 15.38 8.61 16.7 9.57 18.24C10.04 18.99 10.38 19.69 10.74 20.5C11 21.05 11.21 22 12 22C12.79 22 13 21.05 13.25 20.5C13.62 19.69 13.95 18.99 14.42 18.24C15.38 16.71 16.63 15.39 17.58 13.84C18.5 12.37 19 10.74 19 9C19 5.13 15.87 2 12 2ZM12 11.75C10.62 11.75 9.5 10.63 9.5 9.25C9.5 7.87 10.62 6.75 12 6.75C13.38 6.75 14.5 7.87 14.5 9.25C14.5 10.63 13.38 11.75 12 11.75Z" fill="#689946"/>
+                            </svg>
+                            <%= event.location%>
+                        </label>
+                        <label for="">Views: N</label>
+    
+                    </div>
+                </div>
+            <% }) %>
 
         </div>
+
+        
 
         <div class="addEvent">
             <div class="backToMain"></div>
@@ -76,11 +111,15 @@
                     <label for="">Title</label>
                     <input type="text" name="title">
 
+                    <label for="">Description</label>
+                    <!-- <textarea name="description cols="30" rows="10"></textarea> -->
+                    <input type="tex" name="description">
+
                     <div class="timeBox">
 
                         <div class="DateDiv">
                             <label  for="">Date</label>
-                            <input id="date" type="date" name="date">
+                            <input id="date" type="text" name="date">
                             
                         </div>
                         
@@ -104,7 +143,7 @@
                     <input type="text" name="location">
 
                     <label for="">Upload Image</label>
-                    <input type="file" name="image" class="filepond">
+                    <input type="file" name="poster" class="filepond">
 
                     <button type="submit">submit</button>
                 </form>
@@ -147,6 +186,7 @@
     <script>
         // Get the button element by its ID
         var myButton = document.querySelector('#AddEvent');
+        var loginBttn = document.querySelector('#login');
         var burgerButton = document.querySelector('.Burger');
 
         var div = document.querySelector(".addEvent")
@@ -154,6 +194,7 @@
         
         var overlay = document.querySelector(".overlay")
         var closeNavigation = document.querySelector(".closeNavigation")
+
 
     
         // Define the onclick event handler function
@@ -179,12 +220,33 @@
             div.classList.toggle('show');
         }
 
+        function redirectToLoging() {
+            console.log("should redirect to login");
+            window.location.href = '/login';
+        }
+
         backToMain.onclick = goToMainPage;
         closeNavigation.onclick = toggleNavigation;
     
         // Attach the onclick event handler to the button
-        myButton.onclick = goToAddEventPage;
+        try {
+            
+            myButton.onclick = goToAddEventPage;
+        } catch (error) {
+            
+        }
         burgerButton.onclick = toggleNavigation;
+
+        // loginBttn.onclick = redirectToLoging;
+        try {
+            
+            loginBttn.onclick = redirectToLoging;
+        } catch (error) {
+            
+        }
+
+        
+        
 
 
 
