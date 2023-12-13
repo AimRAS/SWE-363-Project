@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/events.css">
     <link rel="stylesheet" href="css/addevnt.css">
     <link rel="stylesheet" href="css/buger.css">
-    <link rel="icon" href="/Assets/ProjectIcon.svg">
+    <link rel="icon" href="Assets/ProjectIcon.svg">
     <!-- include JS files needed -->
     <!-- <script src="js/db.js" defer></script> -->
     <!-- Code for filepond -->
@@ -47,10 +47,15 @@
             <button id="login" class="AddEvent">Log in</button>
 
         <% } %>
-        <!-- <div class="signButtons">
-            <button class="LogingButton">Sign In</button>
-            <button class="SignUpButton">Sign Up</button>
-        </div> -->
+        <% if (user) { %>
+        <div class="profile">
+            <img class="ChannelImage" src="Assets/gitimageforproject.png" alt="">
+            <p><%= user.username %></p>
+            <svg xmlns="http://www.w3.org/2000/svg" width="59" height="39" viewBox="0 0 59 39" fill="none" class="dropArrow">
+                <path d="M2.43607 14.2272L23.7173 35.7759C26.9219 39.0207 32.0984 39.0207 35.3029 35.7759L56.5842 14.2272C61.7607 8.98558 58.0632 0 50.7503 0H8.18776C0.874891 0 -2.74046 8.98558 2.43607 14.2272Z" fill="#FCFCFC"/>
+              </svg>
+        </div>
+        <% } %>
         <div class="headerblur">
             
         </div>
