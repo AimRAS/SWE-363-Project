@@ -8,6 +8,11 @@
     background: #DBDBDB;
 }
 
+.filepond--drop-label.filepond--drop-label label {
+    width: 100%
+}
+
+.filepond--drop-label.filepond--drop-label label
 
 /* .filepond--root .filepond--drop-label {
     background: #1a1a1a;

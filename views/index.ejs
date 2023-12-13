@@ -76,7 +76,7 @@
                 <div class="Event"> 
                     <div class="Channel">
                         <img src="Assets/gitimageforproject.png" alt="" class="ChannelImage">
-                        <h2 class="channelName">Club</h2>
+                        <h2 class="channelName"><%= event.userID ? event.userID.username : 'Unknown User' %></h2>
                     </div>
                     <div class="descrption"><p><%= event.title %></p></div>
                     <img src=<%= event.posterImagePath %> alt="" class="Poster">
@@ -142,7 +142,7 @@
                     <label for="">Location</label>
                     <input type="text" name="location">
 
-                    <label for="">Upload Image</label>
+                    <!-- <label for="">Upload Image</label> -->
                     <input type="file" name="poster" class="filepond">
 
                     <button type="submit">submit</button>

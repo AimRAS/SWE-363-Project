@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 // const multer = require('multer')
 const Event = require('../models/event')
+const User = require('../models/user')
 const jwt = require('jsonwebtoken');
 const { requireAuth, checkUser } = require('../middleware/authMiddleware');
 // const fileSizeLimiter = require('../middleware/fileSizeLimiter');
@@ -42,11 +43,12 @@ const bodyParser = require('body-parser')
 // All Events Route
 router.get('/',checkUser, async (req, res)=>{
   
-  let query = Event.find()
+  // let query = Event.find()
 
   try {
-    const events = await query.exec()
-    res.render("index", {events: events})
+    // const events = await query.exec()
+    const events = await Event.find().populate('userID');
+    res.render("index", {events: events, Event})
   } catch (error) {
     res.render('index')
   }
@@ -54,9 +56,10 @@ router.get('/',checkUser, async (req, res)=>{
 })
 
 // Create Book Route
-router.post('/', async (req, res) => {
+router.post('/',checkUser, async (req, res) => {
     const event = new Event({
 
+      userID: res.locals.user._id,
       title: req.body.title,
       description: req.body.description,  
       
