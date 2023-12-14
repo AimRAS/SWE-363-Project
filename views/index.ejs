@@ -15,7 +15,8 @@
     <link rel="stylesheet" href="css/addevnt.css">
     <link rel="stylesheet" href="css/buger.css">
     <link rel="stylesheet" href="css/filepond.css">
-    <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
+    <link href="css/filepondOrigin.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/profilepopul.css">
     <!-- <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet"> -->
 
     <!-- include JS files needed -->
@@ -28,20 +29,24 @@
     <script defer src="/js/fileUpload.js"></script>
     <script defer src="/js/login.js"></script>
     <script defer src="/js/scroll.js"></script>
+    <script defer src="/js/searchForm.js"></script>
+    <script defer src="/js/profilePopup.js"></script>
 </head>
 <body>
   
     <!-- header include: navigation, logo, title, search bar, button, profile info -->
     <header class="header">
         <div class="logoDiv" >
-           
+          
             <img class="icon" src="Assets/Picture5.svg" alt="ProjectIcon">
             <h1>KFUPM Events</h1>
         </div>
         <svg class="Burger" xmlns="http://www.w3.org/2000/svg" width="26" height="20" viewBox="0 0 26 20" fill="none">
             <path d="M24.7027 16.8333V19H1.14267V16.8333H24.7027ZM24.7027 8.91667V11.0833H1.14267V8.91667H24.7027ZM24.7027 3.16667H1.14267V1H24.7027V3.16667Z" fill="#CDCDCD" stroke="#545454"/>
         </svg>
-        <input type="search" class="GlobalSearch" placeholder="search">
+        <form id="searchForm" action="/" method="get">
+            <input id="searchField" type="search" class="GlobalSearch" name="title" placeholder="search" value="<%= searchOptions.title %>">
+        </form>
         <% if (user) { %>
             <button id="AddEvent" class="AddEvent">+ Event</button>
         <% } else { %>
@@ -68,11 +73,14 @@
         <div class="filters">
             <h1>Upcoming Events</h1>
             <div class="filtersButtons">
-                <button class="FilterSelected">All</button>
-                <button class="Filter">Dean</button>
-                <button class="Filter">Clubs</button>
-                <button class="Filter">KIKX</button>
-                <button class="Filter">Students</button>
+                <form action="/" method="get">
+
+                    <button class="Filter Selected">All</button>
+                    <button id="deanBtn" class="Filter" name="channel" value="Dean">Dean</button>
+                    <button class="Filter">Clubs</button>
+                    <button class="Filter">KIKX</button>
+                    <button class="Filter">Students</button>
+                </form>
             </div> 
         </div>
 
@@ -91,7 +99,7 @@
                             <svg class="calendarIcon" xmlns="http://www.w3.org/2000/svg" width="19" height="21" viewBox="0 0 19 21" fill="none">
                                 <path d="M6.89418 9.87075H4.9177V11.8472H6.89418V9.87075ZM10.8472 9.87075H8.87067V11.8472H10.8472V9.87075ZM14.8001 9.87075H12.8236V11.8472H14.8001V9.87075ZM16.7766 2.95305H15.7884V0.976562H13.8119V2.95305H5.90594V0.976562H3.92945V2.95305H2.94121C1.84426 2.95305 0.974604 3.84247 0.974604 4.92954L0.964722 18.7649C0.964722 19.852 1.84426 20.7414 2.94121 20.7414H16.7766C17.8637 20.7414 18.7531 19.852 18.7531 18.7649V4.92954C18.7531 3.84247 17.8637 2.95305 16.7766 2.95305ZM16.7766 18.7649H2.94121V7.89427H16.7766V18.7649Z" fill="#689946"/>
                             </svg>
-                            <%= event.date %> 
+                            From <%=  moment(event.startDate).format('DD/MM/YYYY') %> to <%=  moment(event.endDate).format('DD/MM/YYYY') %>, from <%= event.startTime %> to <%= event.endTime %>
                         </label>
                         <label for="">
                             <svg class="locationIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -121,23 +129,37 @@
                     <!-- <textarea name="description cols="30" rows="10"></textarea> -->
                     <input type="tex" name="description">
 
-                    <div class="timeBox">
+                    <div class="dateBox">
 
                         <div class="DateDiv">
-                            <label  for="">Date</label>
-                            <input id="date" type="text" name="date">
+                            <label  for="">From</label>
+                            <input id="startDate" type="date" name="startDate">
+                            
+                        </div>
+
+                        <div class="DateDiv">
+                            <label  for="">To</label>
+                            <input id="endDate" type="date" name="endDate">
                             
                         </div>
                         
+                        
+                        
+
+                    </div>
+
+                    <div class="timeBox">
+
+                        
                         <div class="timeDiv">
 
-                            <label for="">From</label>
+                            <!-- <label for="">From</label> -->
                             <input id="startTime" type="time" name="startTime">
                         </div>
 
                         <div class="timeDiv">
 
-                            <label for="">To</label>
+                            <!-- <label for="">To</label> -->
                             <input id="endTime" type="time" name="endTime">
                         </div>
                         
@@ -148,10 +170,13 @@
                     <label for="">Location</label>
                     <input type="text" name="location">
 
+                    <label for="">Registration Link</label>
+                    <input type="text" name="link">
+
                     <!-- <label for="">Upload Image</label> -->
                     <input type="file" name="poster" class="filepond">
 
-                    <button type="submit">submit</button>
+                    <button id="submitEvent" type="submit">Submit</button>
                 </form>
                 
             </div>
@@ -185,12 +210,23 @@
             </div>
 
         </div>
+
+        <% if (user) { %>
+        <div class="profilePopup">
+            <h2>Manage Account</h2>
+            <form action="/logout" method="get">
+                <button id="logoutBtn" type="submit">Log Out</button>
+            </form>
+        </div>
+        <% } %>
    
         
     </main>
 
     <script>
         // Get the button element by its ID
+
+
         var myButton = document.querySelector('#AddEvent');
         var loginBttn = document.querySelector('#login');
         var burgerButton = document.querySelector('.Burger');
@@ -201,6 +237,8 @@
         var overlay = document.querySelector(".overlay")
         var closeNavigation = document.querySelector(".closeNavigation")
 
+
+ 
 
     
         // Define the onclick event handler function

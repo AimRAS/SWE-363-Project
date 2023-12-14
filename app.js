@@ -40,4 +40,4 @@ app.all('*',(req,res)=>{
 })
 
 // listen at port 3500
-app.listen(3500)
+app.listen(process.env.PORT || 3500)

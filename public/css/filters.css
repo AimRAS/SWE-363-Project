@@ -26,7 +26,7 @@
     background: rgba(217, 217, 217, 0.00);
 }
 
-.FilterSelected {
+.Filter .Selected {
     /* width: 48px; */
     padding-left: 10px;
     padding-right: 10px;

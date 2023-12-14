@@ -81,22 +81,47 @@
     background-image: linear-gradient(to bottom, #1A1A1A 50%, #242424 50%);
 }
 
+.dateBox {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+.dateBox label {
+    left: 50px;
+}
+
 .timeBox {
     display: flex;
     justify-content: space-between;
     gap: 10px;
 }
 
-#date {
-    width: 100px;
+#startDate {
+    width: 120px;
+    padding: 0px 5px;
+}
+#endDate {
+    width: 120px;
     padding: 0px 5px;
 }
 
 #startTime {
-    width: 70px;
+    width: 120px;
     padding: 0px 5px;
 }
 #endTime {
-    width: 70px;
+    width: 120px;
     padding: 0px 5px;
+}
+
+#submitEvent {
+    width: 100%;
+    height: 40px;
+    border-radius: 7px;
+    border: 0px solid #6ABA4E;
+    background-color: #689946;
+    color: white;
+    font-family: Roboto;
+
 }

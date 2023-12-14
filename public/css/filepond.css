@@ -17,9 +17,18 @@
 /* .filepond--root .filepond--drop-label {
     background: #1a1a1a;
 } */
+.filepond--root
 
 .filepond--root {
     margin-top: 10px;
+    /* margin-bottom: 0px !important; */
+    margin-bottom: 0px !important;
+
+}
+
+.filepond--root .filepond .filepond--hopper {
+    margin-bottom: 0px !important;
+
 }
 
 .filepond--panel-root {

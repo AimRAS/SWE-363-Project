@@ -7,82 +7,78 @@ const jwt = require('jsonwebtoken');
 const { requireAuth, checkUser } = require('../middleware/authMiddleware');
 // const fileSizeLimiter = require('../middleware/fileSizeLimiter');
 const imageMimeTypes = ['image/jpeg', 'image/png', 'images/gif']
-const bodyParser = require('body-parser')
+const moment = require('moment')
 
 
-
-// router.use(bodyParser.urlencoded({ limit: '10mb', extended: false, inflate: "10mb", parameterLimit: 100000 }))
-
-
-// const storage = multer.memoryStorage(); // In-memory storage, adjust as needed
-// const upload = multer({ storage: storage, limits: { fileSize: 20 * 1024 * 1024 } }); // 20 MB limit
-
-
-// function checkAuthentication(req) {
-//   // Implement logic to verify the JWT token here
-//   // If authenticated, redirect to a specific page with a flag
-//   const token = req.cookies.jwt;
-
-//   // check json web token exists & is verified
-//   if (token) {
-//     jwt.verify(token, 'net ninja secret', (err, decodedToken) => {
-//       if (err) {
-//         console.log("i waas in errrrrrrr");
-//         return false;
-//       } else {
-//         console.log("it is authenitcated from funct");
-//         return true;
-//       }
-//     });
-//   } else {
-//     console.log("not even a token");
-//     return false;
-//   }
-// }
 
 // All Events Route
 router.get('/',checkUser, async (req, res)=>{
+  let searchOptions = {}
+  let email = 'student'
+  if (req.query.title != null && req.query.title !== '') {
+    searchOptions.title = new RegExp(req.query.title, 'i')
+  }
+  if (req.query.channel != null && req.query.channel !== '') {
+    if (req.query.channel == "Dean")
+    email = 'KFUPM@KFUPM'
+  }
+ 
   
-  // let query = Event.find()
-
   try {
     // const events = await query.exec()
-    const events = await Event.find().populate('userID');
-    res.render("index", {events: events, Event})
+    const events = await Event.find(searchOptions).populate('userID')
+    events.reverse();
+    
+    res.render("index", {events: events, Event, searchOptions: req.query, moment})
   } catch (error) {
+    console.log("erro hereerere");
     res.render('index')
   }
 
 })
 
-// Create Book Route
+// router.get('/searchEvents', checkUser, async (req, res)=>{
+//   try {
+    
+//   } catch (error) {
+//     res.render('index')
+//   }
+// })
+
+// Create Event Route
 router.post('/',checkUser, async (req, res) => {
-  console.log(" the post request is sent");
+  try {
+    if (req.body.title = null || req.body.title == ""){
+      throw Error('Title is Required');
+    }
+
+      
     const event = new Event({
 
       userID: res.locals.user._id,
       title: req.body.title,
       description: req.body.description,  
-      
-      date: req.body.date,
-
-      // startDate: new Date(req.body.startDate),
-      // endDate: new Date(req.body.endDate),
-      // endTime: req.body.endTime,
-
-      location: req.body.location
+  
+      startDate: new Date(req.body.startDate),
+      endDate: new Date(req.body.endDate),
+      startTime: req.body.startTime,
+      endTime: req.body.endTime,
+      location: req.body.location,
+      registrationLink: req.body.link
     })
     savePoster(event, req.body.poster)
 
-    event.save()
-  
-    // try {
-    //   const newBook = await book.save()
-    //   // res.redirect(`books/${newBook.id}`)
-    //   res.redirect(`books`)
-    // } catch {
-    //   // renderNewPage(res, book, true)
-    // }
+    await event.save()
+    res.redirect("/")
+      
+    } catch (err) {
+      res.send("error")
+    }
+})
+
+router.post('/LogoutBtn', async (req, res) => {
+
+  f
 })
 
 

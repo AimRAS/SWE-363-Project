@@ -27,6 +27,7 @@ module.exports.signup_post = async (req, res) => {
       const user = await User.create({ email: email, password: password, username: username });
       const token = createToken(user._id);
       res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 });
+      res.redirect('/')
     //   res.status(201).json({ user: user._id });
     }
     catch(err) {
@@ -61,4 +62,9 @@ module.exports.login_post = async (req, res) => {
     // res.status(400).json({ errors });
   }
 
+}
+
+module.exports.logout_get = (req, res) => {
+  res.cookie('jwt', '', { maxAge: 1 });
+  res.redirect('/');
 }
