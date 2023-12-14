@@ -13,7 +13,10 @@ module.exports.signup_get = (req, res) => {
   }
   
 module.exports.login_get = (req, res) => {
-    res.render('login');
+  const err = {}
+  const email = ""
+  const password = ""
+    res.render('login', {email, password, err});
 }
 
 module.exports.signup_post = async (req, res) => {
@@ -45,6 +48,15 @@ module.exports.login_post = async (req, res) => {
     // res.status(200).json({ user: user._id });
   } 
   catch (err) {
+    if (err.message === "incorrect password") {
+      console.log("checkinng incorrect");
+    } 
+    // // if (err == )
+    // console.log(err.message);
+    res.render('login', {
+      err, 
+      email, 
+      password})
     // const errors = handleErrors(err);
     // res.status(400).json({ errors });
   }

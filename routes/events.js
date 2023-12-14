@@ -57,6 +57,7 @@ router.get('/',checkUser, async (req, res)=>{
 
 // Create Book Route
 router.post('/',checkUser, async (req, res) => {
+  console.log(" the post request is sent");
     const event = new Event({
 
       userID: res.locals.user._id,

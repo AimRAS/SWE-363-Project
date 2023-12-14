@@ -14,6 +14,16 @@ const userSchema = new mongoose.Schema({
     username: {
         type: String,
         required: true
+    },
+    userType: {
+      type: String,
+      required: true,
+      default: "student"
+    },
+    verified: {
+      type: Boolean,
+      required: true,
+      default: false
     }
     
 })

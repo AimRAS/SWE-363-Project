@@ -2,28 +2,31 @@
     <html>
         <head>
             <Title>sign in</Title>
-            <link rel="stylesheet" type="text/css" href="sign.css">
+            <link rel="stylesheet" href="css/login.css">
 
         </head>
         <body>
-            <header>
+ 
+            <div class="registrationContainer">
                 <h1>Sign In</h1> 
-            </header>    
-            <section>
                 <form action="/login" method="post">
                     <label for="email">email:</label><br>
-                    <input type="text" id="email" name="email"><br>
+                    <input type="text" id="email" name="email" value="<%= email %>"><br>
+                    <% if (err.message === "incorrect email") { %>
+                        <p>Incorrect Email</p>
+                    <% } %>
                     <label for="password">Password:</label><br>
-                    <input type="password" id="password" name="password">
+                    <input type="password" id="password" name="password" value="<%= password %>">
+                    <% if (err.message === "incorrect password") { %>
+                        <p>Incorrect Password</p>
+                    <% } %>
                     <a href="Forgotpassword.html">Forgot password?</a>
                     <br>
                     <input type="submit" id="submit" value="Sign in">
                     Don't have account? <a href="signup">Sign Up</a>
 
                 </form>
-            </section>
-            <footer>
+            </div>
 
-            </footer>
         </body>
     </html>
