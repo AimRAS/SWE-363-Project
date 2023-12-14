@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KFUPM Event</title>
     <base href="../">
+    <link rel="icon" href="Assets/ProjectIcon.svg">
+
     <!-- include all CSS files needed -->
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/header.css">
@@ -12,25 +14,24 @@
     <link rel="stylesheet" href="css/events.css">
     <link rel="stylesheet" href="css/addevnt.css">
     <link rel="stylesheet" href="css/buger.css">
-    <link rel="icon" href="Assets/ProjectIcon.svg">
-    <!-- include JS files needed -->
-    <!-- <script src="js/db.js" defer></script> -->
-    <!-- Code for filepond -->
     <link rel="stylesheet" href="css/filepond.css">
     <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
     <!-- <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet"> -->
+
+    <!-- include JS files needed -->
+    <!-- Code for filepond -->
+    
     <!-- <script defer src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script> -->
     <script defer src="https://unpkg.com/filepond-plugin-file-encode/dist/filepond-plugin-file-encode.js"></script>
     <script defer src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script>
     <script defer src="https://unpkg.com/filepond/dist/filepond.js"></script>
     <script defer src="/js/fileUpload.js"></script>
     <script defer src="/js/login.js"></script>
-    
-    <!-- comment for testing -->
+    <script defer src="/js/scroll.js"></script>
 </head>
 <body>
   
-
+    <!-- header include: navigation, logo, title, search bar, button, profile info -->
     <header class="header">
         <div class="logoDiv" >
            
@@ -249,37 +250,6 @@
         } catch (error) {
             
         }
-
-        
-        
-
-
-
-
-        const body = document.body;
-        let lastScroll = 0;
-
-        window.addEventListener("scroll", () => {
-            const currentScroll = window.pageYOffset;
-            if (currentScroll <= 0) {
-                body.classList.remove("scroll-up");
-                // return;
-            }
-
-            if (currentScroll > lastScroll && !body.classList.contains("scroll-down")) {
-                body.classList.remove("scroll-up");
-                body.classList.add("scroll-down");
-            } 
-            else if (
-                currentScroll < lastScroll &&
-                body.classList.contains("scroll-down")
-            ) {
-                body.classList.remove("scroll-down");
-                body.classList.add("scroll-up");
-            }
-            lastScroll = currentScroll;
-        });
-
 
         var changeThemeBttn = document.querySelector(".changeTheme");
         var header = document.querySelector(".header");
