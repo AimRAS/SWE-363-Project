@@ -18,32 +18,38 @@ router.get('/',checkUser, async (req, res)=>{
   if (req.query.title != null && req.query.title !== '') {
     searchOptions.title = new RegExp(req.query.title, 'i')
   }
-  if (req.query.channel != null && req.query.channel !== '') {
-    if (req.query.channel == "Dean")
-    email = 'KFUPM@KFUPM'
-  }
- 
   
+ 
   try {
-    // const events = await query.exec()
-    const events = await Event.find(searchOptions).populate('userID')
+
+    let events = await Event.find(searchOptions).populate("userID")
+    // console.log(events);
+
+    
+    if (req.query.channel != null && req.query.channel !== '') {
+      if (req.query.channel == "Dean") {
+        events = events.filter(event => {
+          return event.userID.email === "KFUPM@KFUPM";
+          // return opt;
+        })
+      }
+    }
+
+    // let output = data.filter(eachVal => {
+    //   return eachVal.details.gradingDetails.grade === 'A';
+    // });
+    
+    
     events.reverse();
     
     res.render("index", {events: events, Event, searchOptions: req.query, moment})
   } catch (error) {
+    console.log(error);
     console.log("erro hereerere");
     res.render('index')
   }
 
 })
-
-// router.get('/searchEvents', checkUser, async (req, res)=>{
-//   try {
-    
-//   } catch (error) {
-//     res.render('index')
-//   }
-// })
 
 // Create Event Route
 router.post('/',checkUser, async (req, res) => {
@@ -75,14 +81,6 @@ router.post('/',checkUser, async (req, res) => {
       res.send("error")
     }
 })
-
-router.post('/LogoutBtn', async (req, res) => {
-
-  f
-})
-
-
-
 
 function savePoster(event, posterEncoded) {
   if (posterEncoded == null) return

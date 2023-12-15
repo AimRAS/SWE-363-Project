@@ -51,6 +51,10 @@
     letter-spacing: 0.5px;
 }
 
+#hiddenField {
+    display: none;
+}
+
 @media (min-width: 600px) {
     .filters {
         margin-top: 80px;
