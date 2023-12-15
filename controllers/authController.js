@@ -50,17 +50,12 @@ module.exports.login_post = async (req, res) => {
     // res.status(200).json({ user: user._id });
   } 
   catch (err) {
-    if (err.message === "incorrect password") {
-      console.log("checkinng incorrect");
-    } 
-    // // if (err == )
-    // console.log(err.message);
+    
     res.render('login', {
       err, 
       email, 
       password})
-    // const errors = handleErrors(err);
-    // res.status(400).json({ errors });
+
   }
 
 }

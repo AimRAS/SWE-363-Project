@@ -1,16 +1,14 @@
 const express = require('express')
 const router = express.Router()
-// const multer = require('multer')
 const Event = require('../models/event')
 const User = require('../models/user')
 const jwt = require('jsonwebtoken');
 const { requireAuth, checkUser } = require('../middleware/authMiddleware');
-// const fileSizeLimiter = require('../middleware/fileSizeLimiter');
 const imageMimeTypes = ['image/jpeg', 'image/png', 'images/gif']
 const moment = require('moment')
 
 
-
+let storedData = null;
 // All Events Route
 router.get('/',checkUser, async (req, res)=>{
   let searchOptions = {}
@@ -19,30 +17,23 @@ router.get('/',checkUser, async (req, res)=>{
     searchOptions.title = new RegExp(req.query.title, 'i')
   }
   
- 
   try {
 
     let events = await Event.find(searchOptions).populate("userID")
-    // console.log(events);
 
-    
     if (req.query.channel != null && req.query.channel !== '') {
       if (req.query.channel == "Dean") {
         events = events.filter(event => {
-          return event.userID.email === "KFUPM@KFUPM";
-          // return opt;
+          return event.userID.email === "kfupm@kfupm";
         })
       }
     }
 
-    // let output = data.filter(eachVal => {
-    //   return eachVal.details.gradingDetails.grade === 'A';
-    // });
-    
-    
     events.reverse();
+
+    storedData = {events: events, Event, searchOptions: req.query, moment, err: "" }
     
-    res.render("index", {events: events, Event, searchOptions: req.query, moment})
+    res.render("index", storedData)
   } catch (error) {
     console.log(error);
     console.log("erro hereerere");
@@ -53,16 +44,13 @@ router.get('/',checkUser, async (req, res)=>{
 
 // Create Event Route
 router.post('/',checkUser, async (req, res) => {
-  try {
-    if (req.body.title = null || req.body.title == ""){
-      throw Error('Title is Required');
-    }
 
-      
+  try {
+
     const event = new Event({
 
       userID: res.locals.user._id,
-      title: req.body.title,
+      title: req.body.titleInput,
       description: req.body.description,  
   
       startDate: new Date(req.body.startDate),
@@ -77,9 +65,9 @@ router.post('/',checkUser, async (req, res) => {
     await event.save()
     res.redirect("/")
       
-    } catch (err) {
-      res.send("error")
-    }
+  } catch (err) {
+    res.render('index', storedData)
+  }
 })
 
 function savePoster(event, posterEncoded) {

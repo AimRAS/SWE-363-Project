@@ -76,8 +76,17 @@
                 <form action="/" method="get">
                     <input id="hiddenField" type="text" name="title" value="<%= searchOptions.title %>">
 
-                    <button class="Filter Selected">All</button>
-                    <button id="deanBtn" class="Filter" name="channel" value="Dean">Dean</button>
+                    
+                    <% if (searchOptions.channel) { %>
+                        <button id="allBtn" class="Filter">All</button>
+                    <% } else { %>
+                        <button id="allBtn" class="Filter Selected">All</button>
+                    <% }  %>
+                    <% if (searchOptions.channel === "Dean") { %>
+                        <button id="deanBtn" class="Filter Selected" name="channel" value="Dean">Dean</button>
+                    <% } else { %>
+                            <button id="deanBtn" class="Filter" name="channel" value="Dean">Dean</button>
+                    <% }  %>
                     <button class="Filter">Clubs</button>
                     <button class="Filter">KIKX</button>
                     <button class="Filter">Students</button>
@@ -124,7 +133,7 @@
                 <form action="/" method="post">
 
                     <label for="">Title</label>
-                    <input type="text" name="title">
+                    <input type="text" name="titleInput">
 
                     <label for="">Description</label>
                     <!-- <textarea name="description cols="30" rows="10"></textarea> -->
@@ -143,8 +152,6 @@
                             <input id="endDate" type="date" name="endDate">
                             
                         </div>
-                        
-                        
                         
 
                     </div>
